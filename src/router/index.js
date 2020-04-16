@@ -21,7 +21,20 @@ export default new VueRouter({
         {
             path:'/secure',
             name:"secure",
-            component:SecureComponent
+            component:SecureComponent,
+            beforeEnter:(to,from,next)=>{
+                if(localStorage.getItem("user"))
+                    next()
+                next(false)
+            }
+        },
+        {
+            path:'*',
+            name:"login",
+            component:LoginComponent,
+            beforeEnter:(to,from,next)=>{
+                next("/login")
+            }
         }
     ]
 })

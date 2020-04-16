@@ -32,7 +32,6 @@
                     username: '',
                     password: '',
                 },
-                userId: '',
                 errorMsg: '',
                 flag: false
 
@@ -45,11 +44,11 @@
         },
         methods: {
             login() {
-                this.errorMsg = ''
                 if (this.input.username != "" && this.input.password != "") {
                     if (this.input.username == this.$parent.fackAccount.username && this.input.password == this.$parent
                         .fackAccount.password) {
                         this.$emit("authenticated", true);
+                        localStorage.setItem("user",this.input.username)
                         this.$router.replace({
                             name: "secure"
                         });

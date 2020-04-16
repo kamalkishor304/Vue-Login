@@ -1,8 +1,7 @@
 <template>
     <div id="secure" class="container">
         <h1>Secure Area</h1>
-        <p>
-            This is a secure area
+        <p>Welcome <strong> {{user}}</strong>
         </p>
     </div>
 </template>
@@ -12,6 +11,7 @@ export default {
     name:'Secure',
     data(){
         return {
+            user:localStorage.getItem('user')
         }
     }
 }
